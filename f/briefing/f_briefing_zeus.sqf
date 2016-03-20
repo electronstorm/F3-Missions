@@ -11,7 +11,7 @@
 
 _cre = player createDiaryRecord ["diary", ["Credits","
 <br/>
-*** Insert mission credits here. ***
+Mission by intel64gamer.
 <br/><br/>
 Made with F3 (http://www.ferstaberinde.com/f3/en/)
 "]];

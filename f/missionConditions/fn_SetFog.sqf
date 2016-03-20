@@ -12,10 +12,6 @@ private ["_fog","_strength","_decay","_base"];
 // We interpret the values parsed to the script. If the function was called from the parameters those values are used.
 
 _fog = _this select 0;
-
-// Exit when using mission settings
-if ( _fog == 4 ) exitWith {};
-
 _transition = if (count _this > 1) then {_this select 1} else {0};
 
 _strength = 0;	// Value for fog at base level
@@ -29,26 +25,34 @@ _base = 0; 		// Base altitude of fog (in meters). Up until this height fog does 
 
 switch (_fog) do
 {
-	//None
+	//Reasonable
 	case 0:
 	{
-		_strength = 0;
+		_strength = 0.30;
 		_decay = 0;
 		_base = 0;
 	};
 
-	//Light
+	//Interesting
 	case 1:
 	{
-		_strength = 0.2;
+		_strength = 0.45;
 		_decay = 0;
 		_base = 0;
 	};
 
-	//Heavy
+	//Fun
 	case 2:
 	{
-		_strength = 0.4;
+		_strength = 0.60;
+		_decay = 0;
+		_base = 0;
+	};
+
+	//Ultra
+	case 2:
+	{
+		_strength = 0.75;
 		_decay = 0;
 		_base = 0;
 	};
@@ -62,5 +66,3 @@ switch (_fog) do
 _transition setFog [_strength,_decay,_base];
 
 // ====================================================================================
-
-

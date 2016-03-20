@@ -1,6 +1,6 @@
 # Description #
 
-Missions for ARMA 3. No additional mods required. Select a branch for individual missions.
+Opfor has Submarines. NATO wants Submarines. NATO tries to steal said submarines from CSAT. Slot at least two divers.
 
 # F3 Info #
 

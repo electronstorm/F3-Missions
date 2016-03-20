@@ -32,22 +32,7 @@ _adm = player createDiaryRecord ["diary", ["Administration","
 // The code below creates the execution sub-section of notes.
 
 _exe = player createDiaryRecord ["diary", ["Execution","
-<br/>
-<font size='18'>COMMANDER'S INTENT</font>
-<br/>
-*** Insert very short summary of plan here. ***
-<br/><br/>
-<font size='18'>MOVEMENT PLAN</font>
-<br/>
-*** Insert movement instructions here. ***
-<br/><br/>
-<font size='18'>FIRE SUPPORT PLAN</font>
-<br/>
-*** Insert fire support instructions here. ***
-<br/><br/>
-<font size='18'>SPECIAL TASKS</font>
-<br/>
-*** Insert instructions for specific units here. ***
+Up to the CO.
 "]];
 
 // ====================================================================================

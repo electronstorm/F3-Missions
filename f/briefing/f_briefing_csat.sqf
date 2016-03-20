@@ -11,7 +11,7 @@
 
 _cre = player createDiaryRecord ["diary", ["Credits","
 <br/>
-*** Insert mission credits here. ***
+Mission by intel64gamer.
 <br/><br/>
 Made with F3 (http://www.ferstaberinde.com/f3/en/)
 "]];
@@ -32,22 +32,7 @@ _adm = player createDiaryRecord ["diary", ["Administration","
 // The code below creates the execution sub-section of notes.
 
 _exe = player createDiaryRecord ["diary", ["Execution","
-<br/>
-<font size='18'>COMMANDER'S INTENT</font>
-<br/>
-*** Insert very short summary of plan here. ***
-<br/><br/>
-<font size='18'>MOVEMENT PLAN</font>
-<br/>
-*** Insert movement instructions here. ***
-<br/><br/>
-<font size='18'>FIRE SUPPORT PLAN</font>
-<br/>
-*** Insert fire support instructions here. ***
-<br/><br/>
-<font size='18'>SPECIAL TASKS</font>
-<br/>
-*** Insert instructions for specific units here. ***
+Up to the CO.
 "]];
 
 // ====================================================================================
@@ -57,7 +42,7 @@ _exe = player createDiaryRecord ["diary", ["Execution","
 
 _mis = player createDiaryRecord ["diary", ["Mission","
 <br/>
-*** Insert the mission here. ***
+We have submarines. NATO wants steal them. Stop them!
 "]];
 
 // ====================================================================================
@@ -67,15 +52,15 @@ _mis = player createDiaryRecord ["diary", ["Mission","
 
 _sit = player createDiaryRecord ["diary", ["Situation","
 <br/>
-*** Insert general information about the situation here.***
+You need to defend the secret submarine base around your current position. Take advantage of the terrain and various defensive structures. If comrade Tigershark didn't forget to lock the submarines NATO will first have to find the keys to unlock the submarines before they can even attempt to steal them.
 <br/><br/>
 <font size='18'>ENEMY FORCES</font>
 <br/>
-*** Insert information about enemy forces here.***
+Unkown. They will likely outnumber us and have helo support.
 <br/><br/>
 <font size='18'>FRIENDLY FORCES</font>
 <br/>
-*** Insert information about friendly forces here.***
+One squad of infantry supported by MMGs.
 "]];
 
 // ====================================================================================
