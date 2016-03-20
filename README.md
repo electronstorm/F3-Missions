@@ -1,6 +1,6 @@
 # Description #
 
-Missions for ARMA 3. No additional mods required. Select a branch for individual missions.
+A long time ago in a place far, far away one team of cretins fought another team of cretins.
 
 # F3 Info #
 

@@ -215,3 +215,28 @@ f_wound_extraFAK = 2;
 [] execVM "f\medical\medical_init.sqf";
 
 // ====================================================================================
+
+waitUntil {alive Player};
+
+removeAllWeapons player;
+
+player addMagazine "9Rnd_45ACP_Mag";
+player addMagazine "9Rnd_45ACP_Mag";
+player addMagazine "9Rnd_45ACP_Mag";
+player addMagazine "9Rnd_45ACP_Mag";
+player addMagazine "9Rnd_45ACP_Mag";
+player addMagazine "9Rnd_45ACP_Mag";
+player addMagazine "9Rnd_45ACP_Mag";
+player addMagazine "9Rnd_45ACP_Mag";
+player addMagazine "9Rnd_45ACP_Mag";
+player addMagazine "9Rnd_45ACP_Mag";
+
+player addWeapon "hgun_ACPC2_F";
+
+if (side player == west) then {
+    execVM "west.sqf";
+};
+
+if (side player == east) then {
+    execVM "east.sqf";
+};

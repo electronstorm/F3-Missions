@@ -5,9 +5,9 @@
 
 class Header
 {
-	gameType = Coop;
-	minPlayers = 1;
-	maxPlayers = 457;
+	gameType = TDM;
+	minPlayers = 2;
+	maxPlayers = 20;
 };
 
 // ============================================================================================
@@ -15,9 +15,9 @@ class Header
 // F3 - Loading Screen
 // Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
 
-onLoadName = "*** Insert mission name here. ***";
+onLoadName = "Cretins";
 onLoadMission = "Made with the F3 Mission Development Framework";
-author = "*** Insert mission author name here. ***";
+author = "intel64gamer";
 loadScreen = "loadLogo.jpg";
 overviewPicture = "overviewLogo.jpg";
 
@@ -298,9 +298,9 @@ class CfgDebriefing
 {
 	class End1
 	{
-		title = "Ending #1";
+		title = "Blufor Wins!";
 		subtitle = "";
-		description = "*** Insert debriefing #1 here. ***";
+		description = "The cretins of Blufor were victorious!";
 		// pictureBackground = "";
 		// picture = "";
 		// pictureColor[] = {0.0,0.3,0.6,1};
@@ -308,9 +308,9 @@ class CfgDebriefing
 
 	class End2
 	{
-		title = "Ending #2";
+		title = "Redfor Wins!";
 		subtitle = "";
-		description = "*** Insert debriefing #2 here. ***";
+		description = "The cretins of Iran were victorious. Who would have thought?";
 		// pictureBackground = "";
 		// picture = "";
 		// pictureColor[] = {0.0,0.3,0.6,1};
@@ -318,9 +318,9 @@ class CfgDebriefing
 
 	class End3
 	{
-		title = "Ending #3";
+		title = "Cretins!";
 		subtitle = "";
-		description = "*** Insert debriefing #3 here. ***";
+		description = "Don't even ask...";
 		// pictureBackground = "";
 		// picture = "";
 		// pictureColor[] = {0.0,0.3,0.6,1};
@@ -328,9 +328,9 @@ class CfgDebriefing
 
 	class End4
 	{
-		title = "Ending #4";
+		title = "Something happened!";
 		subtitle = "";
-		description = "*** Insert debriefing #4 here. ***";
+		description = "I blame Netkev.";
 		// pictureBackground = "";
 		// picture = "";
 		// pictureColor[] = {0.0,0.3,0.6,1};
