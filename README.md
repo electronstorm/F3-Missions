@@ -1,6 +1,6 @@
 # Description #
 
-Missions for ARMA 3. No additional mods required. Select a branch for individual missions.
+Plumbers and submariners disagree about things...
 
 # F3 Info #
 
