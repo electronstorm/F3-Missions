@@ -17,10 +17,6 @@ private ["_timeOfDay","_year","_month","_day","_hour","_minute","_transition"];
 
 _timeOfDay = _this select 0;
 
-// Exit when using mission settings
-if ( _timeOfDay == 8 ) exitWith {};
-
-
 // ====================================================================================
 
 // SET DEFAULT VALUES

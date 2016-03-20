@@ -215,3 +215,67 @@ f_wound_extraFAK = 2;
 [] execVM "f\medical\medical_init.sqf";
 
 // ====================================================================================
+
+
+waitUntil { alive player };
+
+removeAllWeapons player;
+
+player addMagazine "6Rnd_45ACP_Cylinder";
+player addMagazine "6Rnd_45ACP_Cylinder";
+player addMagazine "6Rnd_45ACP_Cylinder";
+player addMagazine "6Rnd_45ACP_Cylinder";
+player addMagazine "6Rnd_45ACP_Cylinder";
+player addMagazine "6Rnd_45ACP_Cylinder";
+player addMagazine "6Rnd_45ACP_Cylinder";
+player addMagazine "6Rnd_45ACP_Cylinder";
+player addMagazine "6Rnd_45ACP_Cylinder";
+player addMagazine "6Rnd_45ACP_Cylinder";
+player addMagazine "6Rnd_45ACP_Cylinder";
+player addMagazine "6Rnd_45ACP_Cylinder";
+player addMagazine "6Rnd_45ACP_Cylinder";
+player addMagazine "6Rnd_45ACP_Cylinder";
+player addMagazine "6Rnd_45ACP_Cylinder";
+player addMagazine "6Rnd_45ACP_Cylinder";
+player addMagazine "6Rnd_45ACP_Cylinder";
+player addMagazine "6Rnd_45ACP_Cylinder";
+player addMagazine "6Rnd_45ACP_Cylinder";
+player addMagazine "6Rnd_45ACP_Cylinder";
+player addMagazine "6Rnd_45ACP_Cylinder";
+
+player addWeapon "hgun_Pistol_heavy_02_Yorris_F";
+
+
+
+//classname = if (true) then [ { "Land_FieldToilet_F" }, { "false" } ];
+if(side player == west) then {
+	player addEventHandler ["Fired", {
+                if (local (_this select 0)) then {
+               	    _vel = (velocity (_this select 6)) vectorMultiply 0.125;
+                    _pos = (_this select 6) modelToWorld [0,4,-1];
+                    _vdir = vectordir (_this select 6);
+                    _vup = vectorUp (_this select 6);
+                    deleteVehicle (_this select 6);
+                   _shell = createVehicle ["B_SDV_01_F",_pos,[],0,"CAN COLLIDE"];
+		   _shell allowDamage false;
+                   _shell setVectorDirAndUp [[random 1, random 1, random 1],[random 1, random 1, random 1]];
+                   _shell setVelocity _vel;
+                   _shell spawn {sleep 10; deleteVehicle _this;};
+                };
+            }];
+} else {
+	player addEventHandler ["Fired", {
+                if (local (_this select 0)) then {
+                    _vel = (velocity (_this select 6)) vectorMultiply 0.2;
+                    _pos = (_this select 6) modelToWorld [0,4,-1];
+                    _vdir = vectordir (_this select 6);
+                    _vup = vectorUp (_this select 6);
+                    deleteVehicle (_this select 6);
+                    _shell = createVehicle ["Land_FieldToilet_F",_pos,[],0,"CAN COLLIDE"];
+		    _shell allowDamage false;
+                    _shell setVectorDirAndUp [[random 1, random 1, random 1],[random 1, random 1, random 1]];
+                    _shell setVelocity _vel;
+                    _shell spawn {sleep 10; deleteVehicle _this;};
+                };
+            }];
+}
