@@ -1,6 +1,6 @@
 # Description #
 
-Missions for ARMA 3. No additional mods required. Select a branch for individual missions.
+Two teams try to accumulate the most field toilets. Slingloading required.
 
 # F3 Info #
 
