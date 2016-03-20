@@ -73,10 +73,10 @@ if(isServer) then {
 // F3 - Automatic Body Removal
 // Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
 
-// f_var_removeBodyDelay = 180;
-// f_var_removeBodyDistance = 500;
-// f_var_doNotRemoveBodies = [];
-// [] execVM "f\removeBody\f_addRemoveBodyEH.sqf";
+f_var_removeBodyDelay = 120;
+f_var_removeBodyDistance = 360;
+f_var_doNotRemoveBodies = [];
+[] execVM "f\removeBody\f_addRemoveBodyEH.sqf";
 
 // ====================================================================================
 
@@ -108,10 +108,10 @@ if(isServer) then {
 // [[GroupName or SIDE],100,{code}] execVM "f\casualtiesCap\f_CasualtiesCapCheck.sqf";
 
 // BLUFOR > NATO
-// [BLUFOR,100,1] execVM "f\casualtiesCap\f_CasualtiesCapCheck.sqf";
+[BLUFOR,100,2] execVM "f\casualtiesCap\f_CasualtiesCapCheck.sqf";
 
 // OPFOR > CSAT
-// [OPFOR,100,1] execVM "f\casualtiesCap\f_CasualtiesCapCheck.sqf";
+[OPFOR,100,1] execVM "f\casualtiesCap\f_CasualtiesCapCheck.sqf";
 
 // INDEPENDENT > AAF
 // [INDEPENDENT,100,1] execVM "f\casualtiesCap\f_CasualtiesCapCheck.sqf";
@@ -121,8 +121,9 @@ if(isServer) then {
 // F3 - AI Skill Selector
 // Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
 
-// f_var_civAI = independent; 		// Optional: The civilian AI will use this side's settings
-// [] execVM "f\setAISKill\f_setAISkill.sqf";
+
+f_var_civAI = independent; // Optional: The civilian AI will use this side's settings
+[] execVM "f\setAISKill\f_setAISkill.sqf";
 
 // ====================================================================================
 
@@ -136,7 +137,7 @@ if(isServer) then {
 // F3 - Name Tags
 // Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
 
-// [] execVM "f\nametag\f_nametags.sqf";
+[] execVM "f\nametag\f_nametags.sqf";
 
 // ====================================================================================
 
@@ -215,3 +216,123 @@ f_wound_extraFAK = 2;
 [] execVM "f\medical\medical_init.sqf";
 
 // ====================================================================================
+
+{
+	if (!isPlayer _x) then {
+		(group _x addWaypoint [position _x, 0]) setWaypointType "GETIN NEAREST";
+		(group _x addWaypoint [getMarkerPos "rearm", 0]) setWaypointType "MOVE";
+	};
+} forEach playableUnits;
+
+if (hasInterface and side player == west) then {
+    cutRsc ["BluforIcon","PLAIN",0,false];
+};
+if (hasInterface and side player == east) then {
+    cutRsc ["RedforIcon","PLAIN",0,false];
+};
+
+_bluHelis = ["VehNATO_AH"] call ws_fnc_collectObjects;
+_redHelis = ["VehCSAT_AH"] call ws_fnc_collectObjects;
+
+{
+	_x addEventHandler ["GetIn", {
+		if (_this select 2 == player) then {
+			_bluHelis = ["VehNATO_AH"] call ws_fnc_collectObjects;
+			_redHelis = ["VehCSAT_AH"] call ws_fnc_collectObjects;
+			{
+				if (assignedVehicle player != _x) then {
+					[_x, "BLUE"] execVM "sidelight.sqf";
+				};
+			} forEach _bluHelis;
+			{ [_x, "RED"] execVM "sidelight.sqf"; } forEach _redHelis;
+		};
+	}];
+} forEach _bluHelis;
+
+{
+	_x addEventHandler ["GetIn", {
+		if (_this select 2 == player) then {
+			_bluHelis = ["VehNATO_AH"] call ws_fnc_collectObjects;
+			_redHelis = ["VehCSAT_AH"] call ws_fnc_collectObjects;
+			{
+				if (assignedVehicle player != _x) then {
+					[_x, "RED"] execVM "sidelight.sqf";
+				};
+			} forEach _redHelis;
+			{ [_x, "BLUE"] execVM "sidelight.sqf"; } forEach _bluHelis;
+		};
+	}];
+} forEach _redHelis;
+
+_bluMen = ["UnitNATO_AH"] call ws_fnc_collectObjects;
+_redMen = ["UnitCSAT_AH"] call ws_fnc_collectObjects;
+{
+    if (_x != player) then {[_x,"BLUE",1] execVM "sidelight.sqf"};
+} forEach _bluMen;
+{
+    if (_x != player) then {[_x,"RED",1] execVM "sidelight.sqf"};
+} forEach _redMen;
+
+
+{
+
+	if(!isMultiplayer) then {
+		f_param_backpacks = 0;
+	};
+
+	_x addAction ["Refuel",{_this select 0 setFuel 1},[],0,false,false,""," driver  _target == _this"];
+    clearWeaponCargoGlobal _x;
+    clearMagazineCargoGlobal _x;
+
+		_x removeMagazineTurret ["120Rnd_CMFlare_Chaff_Magazine", [-1]];
+
+		_x addMagazineTurret ["300Rnd_CMFlare_Chaff_Magazine", [-1]];
+		_x addMagazineTurret ["300Rnd_CMFlare_Chaff_Magazine", [-1]];
+
+		_x removeWeaponTurret ["Bomb_03_Plane_CAS_02_F",[-1]];
+		_x removeMagazineTurret ["2Rnd_Bomb_03_F", [-1]];
+		_x removeWeaponTurret ["Rocket_03_AP_Plane_CAS_02_F",[-1]];
+		_x removeMagazineTurret ["20Rnd_Rocket_03_AP_F", [-1]];
+		_x removeWeaponTurret ["Rocket_03_HE_Plane_CAS_02_F",[-1]];
+		_x removeMagazineTurret ["20Rnd_Rocket_03_HE_F", [-1]];
+		_x removeWeaponTurret ["Missile_AGM_01_Plane_CAS_02_F",[-1]];
+		_x removeMagazineTurret ["4Rnd_Missile_AGM_01_F", [-1]];
+		_x removeWeaponTurret ["Missile_AA_03_Plane_CAS_02_F",[-1]];
+		_x removeMagazineTurret ["2Rnd_Missile_AA_03_F", [-1]];
+		_x removeWeaponTurret ["Cannon_30mm_Plane_CAS_02_F",[-1]];
+		_x removeMagazineTurret ["500Rnd_Cannon_30mm_Plane_CAS_02_F", [-1]];
+
+	switch (f_param_backpacks) do {
+        case 1: {
+					_x addWeaponTurret ["Cannon_30mm_Plane_CAS_02_F",[-1]];
+					_x addMagazineTurret ["500Rnd_Cannon_30mm_Plane_CAS_02_F",[-1]];
+					_x addMagazineTurret ["500Rnd_Cannon_30mm_Plane_CAS_02_F",[-1]];
+					_x addMagazineTurret ["500Rnd_Cannon_30mm_Plane_CAS_02_F",[-1]];
+					_x addMagazineTurret ["500Rnd_Cannon_30mm_Plane_CAS_02_F",[-1]];
+        };
+        case 2: {
+					_x addWeaponTurret ["Gatling_30mm_Plane_CAS_01_F",[-1]];
+					_x addMagazineTurret ["1000Rnd_Gatling_30mm_Plane_CAS_01_F",[-1]];
+					_x addMagazineTurret ["1000Rnd_Gatling_30mm_Plane_CAS_01_F",[-1]];
+					_x addMagazineTurret ["1000Rnd_Gatling_30mm_Plane_CAS_01_F",[-1]];
+					_x addMagazineTurret ["1000Rnd_Gatling_30mm_Plane_CAS_01_F",[-1]];
+        };
+        default {
+					_x addWeaponTurret ["Twin_Cannon_20mm",[-1]];
+					_x addMagazineTurret ["2000Rnd_20mm_shells",[-1]];
+					_x addMagazineTurret ["2000Rnd_20mm_shells",[-1]];
+				};
+    };
+} forEach (_bluhelis + _redHelis);
+
+// for VehNATO_AHX, check if NATO_AHX is in this match, otherwise get rid of it
+{
+	if (isNil ("Unit" + ([format ["%1", _x], 3, count (format ["%1", _x])-1] call BIS_fnc_trimString))) then {
+		deleteVehicle _x;
+	};
+} forEach (_bluhelis + _redHelis);
+
+waitUntil {!isNil "param_submode"};
+if (isServer && param_submode == 1) then {
+    [] execVM "funmarine.sqf";
+};

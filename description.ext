@@ -5,9 +5,9 @@
 
 class Header
 {
-	gameType = Coop;
-	minPlayers = 1;
-	maxPlayers = 457;
+	gameType = TDM;
+	minPlayers = 2;
+	maxPlayers = 23;
 };
 
 // ============================================================================================
@@ -15,9 +15,9 @@ class Header
 // F3 - Loading Screen
 // Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
 
-onLoadName = "*** Insert mission name here. ***";
+onLoadName = "Jets";
 onLoadMission = "Made with the F3 Mission Development Framework";
-author = "*** Insert mission author name here. ***";
+author = "intel64gamer";
 loadScreen = "loadLogo.jpg";
 overviewPicture = "overviewLogo.jpg";
 
@@ -146,9 +146,18 @@ class Params
     {
             title = "$STR_f_param_loadouts";
             values[] = {0,1,2};
-            texts[] = {"Light","Medium","Heavy"};
-            default = 1;
+            texts[] = {"20mm Cannon","30mm Cannon","30mm GAU"};
+            default = 2;
             code = "f_param_backpacks = %1";
+    };
+
+    class f_param_submode
+    {
+            title = "Subs!";
+            values[] = {0,1};
+            texts[] = {"Off","On"};
+            default = 0;
+            code = "param_submode = %1";
     };
 
 // ============================================================================================
@@ -187,8 +196,8 @@ class Params
     class f_param_mission_timer
     {
             title = "$STR_f_param_mission_timer";
-            values[] = {0,1,2,3,4,5,6,7,8,9,10,15};
-            texts[] = {"$STR_f_param_mission_timer_off","1","2","3","4","5","6","7","8","9","10","15"};
+            values[] = {0};
+            texts[] = {"$STR_f_param_mission_timer_off"};
             default = 0;
             code = "f_param_mission_timer = %1";
     };
@@ -201,8 +210,8 @@ class Params
 	class f_param_weather
 	{
 		title = "$STR_f_param_weather";
-		values[] = {0,1,2,3,4,5,6,7,8,9};
-		texts[] = {$STR_f_param_weather_Option0,$STR_f_param_weather_Option1,$STR_f_param_weather_Option2,$STR_f_param_weather_Option3,$STR_f_param_weather_Option4,$STR_f_param_weather_Option5,$STR_f_param_weather_Option6,$STR_f_param_weather_Option7,$STR_f_param_weather_Option8,$STR_f_param_weather_Option11};
+		values[] = {0,1,2,3,4,5,6,7,8};
+		texts[] = {$STR_f_param_weather_Option0,$STR_f_param_weather_Option1,$STR_f_param_weather_Option2,$STR_f_param_weather_Option3,$STR_f_param_weather_Option4,$STR_f_param_weather_Option5,$STR_f_param_weather_Option6,$STR_f_param_weather_Option7,$STR_f_param_weather_Option8};
 		default = 0;
 		function = "f_fnc_setWeather";		// This function is called to apply the values
 		isGlobal = 0;						// Execute this only on the server
@@ -212,62 +221,56 @@ class Params
 	class f_param_fog
 	{
 		title = "Fog";
-		values[] = {0,1,2,4};
-		texts[] = {"None","Light","Heavy","Use mission settings"};
+		values[] = {0,1,2};
+		texts[] = {"None","Light","Heavy"};
 		default = 0;
 		function = "f_fnc_SetFog";			// This function is called to apply the values
 		isGlobal = 0;						// Execute this only on the server
 		code = "f_param_fog = %1";
 	};
 
-    class f_param_timeOfDay
-	{
-		title = "$STR_f_param_timeOfDay";
-		values[] = {0,1,2,3,4,5,6,7,8};
-		texts[] = {$STR_f_param_timeOfDay_Option0,$STR_f_param_timeOfDay_Option1,$STR_f_param_timeOfDay_Option2,$STR_f_param_timeOfDay_Option3,$STR_f_param_timeOfDay_Option4,$STR_f_param_timeOfDay_Option5,$STR_f_param_timeOfDay_Option6,$STR_f_param_timeOfDay_Option7,$STR_f_param_timeOfDay_Option8};
-		default = 4;
-		function = "f_fnc_setTime";			// This function is called to apply the values
- 		isGlobal = 0;						// Execute this only on the server
- 		code = "f_param_timeOfDay = %1";
-	};
+//    class f_param_timeOfDay
+//	{
+//		title = "$STR_f_param_timeOfDay";
+//		values[] = {0,1,2,3,4,5,6,7};
+//		texts[] = {$STR_f_param_timeOfDay_Option0,$STR_f_param_timeOfDay_Option1,$STR_f_param_timeOfDay_Option2,$STR_f_param_timeOfDay_Option3,$STR_f_param_timeOfDay_Option4,$STR_f_param_timeOfDay_Option5,$STR_f_param_timeOfDay_Option6,$STR_f_param_timeOfDay_Option7};
+//		default = 4;
+//		function = "f_fnc_setTime";			// This function is called to apply the values
+// 		isGlobal = 0;						// Execute this only on the server
+// 		code = "f_param_timeOfDay = %1";
+//	};
 
 // ============================================================================================
 
 // F3 - AI Skill Selector
 // Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
 
-/*
-	class f_param_AISkill_BLUFOR
-	{
-		title = "$STR_f_param_AISkill_BLUFOR";
-		values[] = {0,1,2,3};
-		texts[] = {$STR_f_param_AISkill_Option0,$STR_f_param_AISkill_Option1,$STR_f_param_AISkill_Option2,$STR_f_param_AISkill_Option3};
-		default = 1;
-		code = "f_param_AISkill_BLUFOR = %1";
-	};
-*/
+class f_param_AISkill_BLUFOR
+{
+	title = "$STR_f_param_AISkill_BLUFOR";
+	values[] = {0,1,2,3};
+	texts[] = {$STR_f_param_AISkill_Option0,$STR_f_param_AISkill_Option1,$STR_f_param_AISkill_Option2,$STR_f_param_AISkill_Option3};
+	default = 1;
+	code = "f_param_AISkill_BLUFOR = %1";
+};
 
-/*
-	class f_param_AISkill_OPFOR
-	{
-		title = "$STR_f_param_AISkill_OPFOR";
-		values[] = {0,1,2,3};
-		texts[] = {$STR_f_param_AISkill_Option0,$STR_f_param_AISkill_Option1,$STR_f_param_AISkill_Option2,$STR_f_param_AISkill_Option3};
-		default = 1;
-		code = "f_param_AISkill_OPFOR = %1";
-	};
-*/
+class f_param_AISkill_OPFOR
+{
+	title = "$STR_f_param_AISkill_OPFOR";
+	values[] = {0,1,2,3};
+	texts[] = {$STR_f_param_AISkill_Option0,$STR_f_param_AISkill_Option1,$STR_f_param_AISkill_Option2,$STR_f_param_AISkill_Option3};
+	default = 1;
+	code = "f_param_AISkill_OPFOR = %1";
+};
 
-/*
-	class f_param_AISkill_INDP
-	{
-		title = "$STR_f_param_AISkill_INDP";
-		values[] = {0,1,2,3};
-		texts[] = {$STR_f_param_AISkill_Option0,$STR_f_param_AISkill_Option1,$STR_f_param_AISkill_Option2,$STR_f_param_AISkill_Option3};
-		default = 1;
-		code = "f_param_AISkill_INDP = %1";
-	};
-*/
+class f_param_AISkill_INDP
+{
+	title = "$STR_f_param_AISkill_INDP";
+	values[] = {0,1,2,3};
+	texts[] = {$STR_f_param_AISkill_Option0,$STR_f_param_AISkill_Option1,$STR_f_param_AISkill_Option2,$STR_f_param_AISkill_Option3};
+	default = 1;
+	code = "f_param_AISkill_INDP = %1";
+};
 
 // ============================================================================================
 
@@ -298,9 +301,9 @@ class CfgDebriefing
 {
 	class End1
 	{
-		title = "Ending #1";
+		title = "BLUFOR WINS";
 		subtitle = "";
-		description = "*** Insert debriefing #1 here. ***";
+		description = "BLUFOR has the best fighter pilot(s).";
 		// pictureBackground = "";
 		// picture = "";
 		// pictureColor[] = {0.0,0.3,0.6,1};
@@ -308,9 +311,9 @@ class CfgDebriefing
 
 	class End2
 	{
-		title = "Ending #2";
+		title = "OPFOR WINS";
 		subtitle = "";
-		description = "*** Insert debriefing #2 here. ***";
+		description = "OPFOR has the best fighter pilot(s).";
 		// pictureBackground = "";
 		// picture = "";
 		// pictureColor[] = {0.0,0.3,0.6,1};
@@ -318,9 +321,9 @@ class CfgDebriefing
 
 	class End3
 	{
-		title = "Ending #3";
+		title = "DRAW????";
 		subtitle = "";
-		description = "*** Insert debriefing #3 here. ***";
+		description = "No one is good at jets.";
 		// pictureBackground = "";
 		// picture = "";
 		// pictureColor[] = {0.0,0.3,0.6,1};
@@ -328,9 +331,9 @@ class CfgDebriefing
 
 	class End4
 	{
-		title = "Ending #4";
+		title = "Submarines";
 		subtitle = "";
-		description = "*** Insert debriefing #4 here. ***";
+		description = "Everyone died to submarines. Blame Netkev.";
 		// pictureBackground = "";
 		// picture = "";
 		// pictureColor[] = {0.0,0.3,0.6,1};
@@ -338,9 +341,9 @@ class CfgDebriefing
 
 	class End5
 	{
-		title = "Ending #5";
+		title = "Powerlines";
 		subtitle = "";
-		description = "*** Insert debriefing #5 here. ***";
+		description = "Doh!";
 		// pictureBackground = "";
 		// picture = "";
 		// pictureColor[] = {0.0,0.3,0.6,1};
@@ -401,6 +404,9 @@ class CfgRespawnTemplates
 
 class CfgFunctions
 {
+	//ws_fnc
+	#include "ws_fnc\config.hpp"
+
 	class F // Defines the "owner"
 	{
 		class common // category
@@ -524,11 +530,69 @@ class CfgFunctions
 	};
 };
 
-
 // ============================================================================================
 
 // F3 - Custom Insignia
 
 class CfgUnitInsignia {
 	#include "f\assignGear\insignia\define.hpp"
+};
+
+// ============================================================================================
+
+class RscTitles {
+	class BluforIcon
+	{
+		idd = -1;
+		fadein = 0;
+		fadeout = 0;
+		duration = 1000000;
+		class controls
+		{
+			class ExampleControl
+			{
+				idc = -1;
+				type = 0;
+				style = 48; //1 2 3...176
+				tileH = 1; //Tile Picture height (style = 144)
+				tileW = 1; //Tile Picture width (style = 144)
+				x = .25
+				y = safeZoneY + .03;
+				h = .05;
+				w = 0.075;
+				font = "EtelkaNarrowMediumPro";
+				sizeEx = 0.05;
+				colorBackground[] = {1,1,1,1}; //white background
+				colorText[] = {0.5,0.5,0.5,1}; //grey foreground
+				text = "images\nato_icon.jpg";
+				lineSpacing = 1; //required for multi-line style
+			};
+		};
+	};
+	class RedforIcon
+	{
+		idd = -1;
+        duration = 1000000;
+		class controls
+		{
+			class ExampleControl
+			{
+				idc = -1;
+				type = 0;
+				style = 48; //1 2 3...176
+				tileH = 1; //Tile Picture height (style = 144)
+				tileW = 1; //Tile Picture width (style = 144)
+				x = .25
+				y = safeZoneY + .03;
+				h = .05;
+				w = 0.075;
+				font = "EtelkaNarrowMediumPro";
+				sizeEx = 0.05;
+				colorBackground[] = {1,1,1,1}; //white background
+				colorText[] = {0.5,0.5,0.5,1}; //grey foreground
+				text = "images\csat_icon.jpg";
+				lineSpacing = 1; //required for multi-line style
+			};
+		};
+	};
 };

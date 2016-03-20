@@ -1,6 +1,6 @@
 # Description #
 
-Missions for ARMA 3. No additional mods required. Select a branch for individual missions.
+NATO and CSAT disagree about who has the best pilots.
 
 # F3 Info #
 

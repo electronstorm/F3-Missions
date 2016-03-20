@@ -2,7 +2,7 @@
 // Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
 // ====================================================================================
 
-// FACTION: CIVILIAN
+// FACTION: CIV
 
 // ====================================================================================
 
@@ -11,7 +11,7 @@
 
 _cre = player createDiaryRecord ["diary", ["Credits","
 <br/>
-*** Insert mission credits here. ***
+Based on Helicopters by darkChozo.
 <br/><br/>
 Made with F3 (http://www.ferstaberinde.com/f3/en/)
 "]];
@@ -23,31 +23,17 @@ Made with F3 (http://www.ferstaberinde.com/f3/en/)
 
 _adm = player createDiaryRecord ["diary", ["Administration","
 <br/>
-*** Insert information on administration and logistics here. ***
-"]];
-
-// ====================================================================================
-
-// NOTES: EXECUTION
-// The code below creates the execution sub-section of notes.
-
-_exe = player createDiaryRecord ["diary", ["Execution","
+<font size='18'>Competition Boundaries</font>
 <br/>
-<font size='18'>COMMANDER'S INTENT</font>
-<br/>
-*** Insert very short summary of plan here. ***
+Should you stray into the red-marked areas on your map, the explosive charge cunningly hidden in your aircraft will go off. Use of GPS is advised.
 <br/><br/>
-<font size='18'>MOVEMENT PLAN</font>
+<font size='18'>IFF</font>
 <br/>
-*** Insert movement instructions here. ***
+Your jet is equipped with a state-of-the-art IFF system. BLUFOR jets will be highlighted in blue, while OPFOR jets will be highlighted in red. The IFF cannot distinguish between a manned and unmanned jet, so be careful of grounded targets.
 <br/><br/>
-<font size='18'>FIRE SUPPORT PLAN</font>
+<font size='18'>Rearmament</font>
 <br/>
-*** Insert fire support instructions here. ***
-<br/><br/>
-<font size='18'>SPECIAL TASKS</font>
-<br/>
-*** Insert instructions for specific units here. ***
+Should you run out of ammo, a <marker name='rearm'>rearm point</marker> can be found in the middle of the map. Suffice to say, rearming your jet in the middle of a fight will be a risky endeavour.
 "]];
 
 // ====================================================================================
@@ -57,7 +43,7 @@ _exe = player createDiaryRecord ["diary", ["Execution","
 
 _mis = player createDiaryRecord ["diary", ["Mission","
 <br/>
-*** Insert the mission here. ***
+Destroy the enemy before they destroy you!
 "]];
 
 // ====================================================================================
@@ -67,15 +53,15 @@ _mis = player createDiaryRecord ["diary", ["Mission","
 
 _sit = player createDiaryRecord ["diary", ["Situation","
 <br/>
-*** Insert general information about the situation here.***
+This is unacceptable. <marker name='nato'>BLUFOR</marker> and <marker name='csat'>OPFOR</marker> cannot agree on the issue of who has the best fighter pilot. Show them, Comrade!
 <br/><br/>
 <font size='18'>ENEMY FORCES</font>
 <br/>
-*** Insert information about enemy forces here.***
+Jets with horrible pilots inside.
 <br/><br/>
 <font size='18'>FRIENDLY FORCES</font>
 <br/>
-*** Insert information about friendly forces here.***
+Jets with magnificent pilots inside.
 "]];
 
 // ====================================================================================
