@@ -83,9 +83,6 @@
         <Spanish> Noche </Spanish>
         <French> Nuit </French>
       </Key>
-      <Key ID="STR_f_param_timeOfDay_Option8">
-        <English> Use mission settings </English>
-      </Key>
       <Key ID="STR_f_param_weather">
         <English> Weather </English>
 	<French> Météo </English>
@@ -122,9 +119,6 @@
         <Russian> Гроза </Russian>
         <Spanish> Tormenta </Spanish>
         <French> Averse </French>
-      </Key>
-      <Key ID="STR_f_param_weather_Option11">
-        <English> Use mission setting </English>
       </Key>
       <Key ID="STR_f_param_weather_Option9">
         <English> Light Fog </English>

@@ -11,7 +11,7 @@
 
 _cre = player createDiaryRecord ["diary", ["Credits","
 <br/>
-*** Insert mission credits here. ***
+Mission by intel64gamer.
 <br/><br/>
 Made with F3 (http://www.ferstaberinde.com/f3/en/)
 "]];
@@ -23,7 +23,7 @@ Made with F3 (http://www.ferstaberinde.com/f3/en/)
 
 _adm = player createDiaryRecord ["diary", ["Administration","
 <br/>
-*** Insert information on administration and logistics here. ***
+End the mission manually. It has no ending trigger.
 "]];
 
 // ====================================================================================
@@ -31,24 +31,7 @@ _adm = player createDiaryRecord ["diary", ["Administration","
 // NOTES: EXECUTION
 // The code below creates the execution sub-section of notes.
 
-_exe = player createDiaryRecord ["diary", ["Execution","
-<br/>
-<font size='18'>COMMANDER'S INTENT</font>
-<br/>
-*** Insert very short summary of plan here. ***
-<br/><br/>
-<font size='18'>MOVEMENT PLAN</font>
-<br/>
-*** Insert movement instructions here. ***
-<br/><br/>
-<font size='18'>FIRE SUPPORT PLAN</font>
-<br/>
-*** Insert fire support instructions here. ***
-<br/><br/>
-<font size='18'>SPECIAL TASKS</font>
-<br/>
-*** Insert instructions for specific units here. ***
-"]];
+//_exe = player createDiaryRecord ["diary", ["Execution",""]];
 
 // ====================================================================================
 
@@ -57,7 +40,7 @@ _exe = player createDiaryRecord ["diary", ["Execution","
 
 _mis = player createDiaryRecord ["diary", ["Mission","
 <br/>
-*** Insert the mission here. ***
+Reach the destination while flying through all the orange circles.
 "]];
 
 // ====================================================================================
@@ -65,17 +48,6 @@ _mis = player createDiaryRecord ["diary", ["Mission","
 // NOTES: SITUATION
 // The code below creates the situation sub-section of notes.
 
-_sit = player createDiaryRecord ["diary", ["Situation","
-<br/>
-*** Insert general information about the situation here.***
-<br/><br/>
-<font size='18'>ENEMY FORCES</font>
-<br/>
-*** Insert information about enemy forces here.***
-<br/><br/>
-<font size='18'>FRIENDLY FORCES</font>
-<br/>
-*** Insert information about friendly forces here.***
-"]];
+//_sit = player createDiaryRecord ["diary", ["Situation",""]];
 
 // ====================================================================================

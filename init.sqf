@@ -83,13 +83,13 @@ if(isServer) then {
 // F3 - Dynamic View Distance
 // Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
 
-// f_var_viewDistance_default = 1250;
-// f_var_viewDistance_tank = 2000;
-// f_var_viewDistance_car = 2000;
-// f_var_viewDistance_rotaryWing = 2500;
-// f_var_viewDistance_fixedWing = 5000;
-// f_var_viewDistance_crewOnly = true;
-// [] execVM "f\dynamicViewDistance\f_setViewDistanceLoop.sqf";
+f_var_viewDistance_default = 1250;
+f_var_viewDistance_tank = 2000;
+f_var_viewDistance_car = 2000;
+f_var_viewDistance_rotaryWing = 2500;
+f_var_viewDistance_fixedWing = 5000;
+f_var_viewDistance_crewOnly = true;
+[] execVM "f\dynamicViewDistance\f_setViewDistanceLoop.sqf";
 
 // ====================================================================================
 
@@ -108,7 +108,7 @@ if(isServer) then {
 // [[GroupName or SIDE],100,{code}] execVM "f\casualtiesCap\f_CasualtiesCapCheck.sqf";
 
 // BLUFOR > NATO
-// [BLUFOR,100,1] execVM "f\casualtiesCap\f_CasualtiesCapCheck.sqf";
+ [BLUFOR,100,2] execVM "f\casualtiesCap\f_CasualtiesCapCheck.sqf";
 
 // OPFOR > CSAT
 // [OPFOR,100,1] execVM "f\casualtiesCap\f_CasualtiesCapCheck.sqf";

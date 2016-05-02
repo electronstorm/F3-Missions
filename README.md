@@ -1,6 +1,6 @@
 # Description #
 
-Missions for ARMA 3. No additional mods required. Select a branch for individual missions.
+A heli race. Somehow involves powerlines.
 
 # F3 Info #
 
